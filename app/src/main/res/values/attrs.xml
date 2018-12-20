@@ -1,4 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <!-- Common -->
     <attr name="PrimaryTextColor" format="color"/>
+    <attr name="LightTextColor" format="color"/>
+
+    <!-- Widgets -->
+    <attr name="FilledButtonColor" format="color"/>
+    <attr name="FilledButtonTextColor" format="color"/>
+
+    <attr name="FilledEditTextColor" format="color"/>
+    <attr name="FilledEditTextTextColor" format="color"/>
+
+    <!-- LoginPostResponse fragment -->
+    <attr name="LoginCompanyNameColor" format="color"/>
 </resources>
