@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <androidx.appcompat.widget.AppCompatTextView
+        style="@style/Text.AEM.Heading1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="H1"/>
+
+    <androidx.appcompat.widget.AppCompatTextView
+        style="@style/Text.AEM.Heading2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="H2"/>
+
+    <androidx.appcompat.widget.AppCompatTextView
+        style="@style/Text.AEM.Heading3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="H3"/>
+
+    <androidx.appcompat.widget.AppCompatTextView
+        style="@style/Text.AEM.Heading4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="H4"/>
+
+    <androidx.appcompat.widget.AppCompatTextView
+        style="@style/Text.AEM.Heading5"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="H5"/>
+
+    <androidx.appcompat.widget.AppCompatTextView
+        style="@style/Text.AEM.Heading6"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="H6"/>
+
+    <androidx.appcompat.widget.AppCompatTextView
+        style="@style/Text.AEM.Subtitle1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Subtitle 1"/>
+
+    <androidx.appcompat.widget.AppCompatTextView
+        style="@style/Text.AEM.Subtitle2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Subtitle 2"/>
+
+    <androidx.appcompat.widget.AppCompatTextView
+        style="@style/Text.AEM.Body1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Body 1"/>
+
+    <androidx.appcompat.widget.AppCompatTextView
+        style="@style/Text.AEM.Caption"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Body 2"/>
+
+    <androidx.appcompat.widget.AppCompatTextView
+        style="@style/Text.AEM.Caption"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Caption"/>
+
+    <androidx.appcompat.widget.AppCompatTextView
+        style="@style/Button.AEM.Filled"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Button"/>
+
+</LinearLayout>
