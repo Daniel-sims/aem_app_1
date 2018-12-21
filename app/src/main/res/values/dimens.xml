@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
+    <!-- Common -->
     <dimen name="text_size_extra_huge">96sp</dimen>
     <dimen name="text_size_huge">60sp</dimen>
     <dimen name="text_size_extra_massive">48sp</dimen>
@@ -11,13 +12,17 @@
     <dimen name="text_size_normal">14sp</dimen>
     <dimen name="text_size_small">12sp</dimen>
 
-    <dimen name="padding_size_extra_small">4dp</dimen>
-    <dimen name="padding_size_small">8dp</dimen>
-    <dimen name="padding_size_medium">12dp</dimen>
-    <dimen name="padding_size_normal">16dp</dimen>
+    <dimen name="padding_size_extra_massive">128dp</dimen>
+    <dimen name="padding_size_massive">64dp</dimen>
+    <dimen name="padding_size_extra_large">48dp</dimen>
     <dimen name="padding_size_large">24dp</dimen>
+    <dimen name="padding_size_normal">16dp</dimen>
+    <dimen name="padding_size_medium">12dp</dimen>
+    <dimen name="padding_size_small">8dp</dimen>
+    <dimen name="padding_size_extra_small">4dp</dimen>
 
 
+    <!-- Login screen -->
     <dimen name="login_edit_text_width">240dp</dimen>
 
 </resources>

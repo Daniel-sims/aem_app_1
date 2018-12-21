@@ -10,6 +10,7 @@
 
     <attr name="FilledEditTextColor" format="color"/>
     <attr name="FilledEditTextTextColor" format="color"/>
+    <attr name="FilledEditTextHintTextColor" format="color"/>
 
     <!-- LoginPostResponse fragment -->
     <attr name="LoginCompanyNameColor" format="color"/>

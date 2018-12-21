@@ -2,5 +2,9 @@
     <string name="app_name">AlarmEngineerManagement</string>
     <string name="company_name">A.E.M</string>
     <string name="company_slogan">Management Systems</string>
+
     <string name="login">Login</string>
+    <string name="login_user_id_hint">User ID</string>
+    <string name="login_pin_hint">Pin</string>
+
 </resources>

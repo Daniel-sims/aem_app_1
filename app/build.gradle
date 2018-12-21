@@ -52,7 +52,7 @@ dependencies {
     testImplementation "junit:junit:${libraries.junitVersion}"
     androidTestImplementation "androidx.test:runner:${libraries.testRunnerVersion}"
     androidTestImplementation "androidx.test.espresso:espresso-core:${libraries.esspressoCoreVersion}"
-    
+
     // Navigation
     implementation "android.arch.navigation:navigation-fragment:${libraries.navigationVersion}"
     implementation "android.arch.navigation:navigation-ui:${libraries.navigationVersion}"

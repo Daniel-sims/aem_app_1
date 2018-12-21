@@ -9,14 +9,15 @@
 
         <!-- Common -->
         <item name="PrimaryTextColor">@color/primary_text_color</item>
-        <item name="LightTextColor">@android:color/white</item>
+        <item name="LightTextColor">@color/white</item>
 
         <!-- Widgets -->
         <item name="FilledButtonColor">@color/colorAccent</item>
-        <item name="FilledButtonTextColor">@android:color/white</item>
+        <item name="FilledButtonTextColor">@color/white</item>
 
         <item name="FilledEditTextColor">@color/black_10pc</item>
         <item name="FilledEditTextTextColor">@color/colorAccent</item>
+        <item name="FilledEditTextHintTextColor">@color/white_10pc</item>
 
         <!-- LoginPostResponse screen -->
         <item name="LoginCompanyNameColor">@color/colorAccent</item>
@@ -153,6 +154,7 @@
         <item name="android:paddingEnd">@dimen/padding_size_normal</item>
         <item name="android:background">?attr/FilledButtonColor</item>
         <item name="android:textColor">?attr/FilledButtonTextColor</item>
+
     </style>
 
     <!-- EditText -->
@@ -163,6 +165,7 @@
         <item name="android:paddingEnd">@dimen/padding_size_normal</item>
         <item name="android:background">?attr/FilledEditTextColor</item>
         <item name="android:textColor">?attr/FilledEditTextTextColor</item>
+        <item name="android:textColorHint">?attr/FilledEditTextHintTextColor</item>
     </style>
 
 
