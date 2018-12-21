@@ -68,4 +68,7 @@ dependencies {
     implementation "com.squareup.retrofit2:retrofit:${libraries.retrofitVersion}"
     implementation "com.squareup.retrofit2:converter-gson:${libraries.retrofitVersion}"
 
+    implementation 'com.squareup.okhttp3:okhttp:3.11.0'
+    implementation 'com.squareup.okhttp3:logging-interceptor:3.4.1'
+
 }

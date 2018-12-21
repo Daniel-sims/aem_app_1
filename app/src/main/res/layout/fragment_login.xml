@@ -27,37 +27,37 @@
         android:layout_height="wrap_content"
         android:paddingBottom="@dimen/padding_size_massive"
         android:text="@string/company_slogan"
-        app:layout_constraintBottom_toTopOf="@id/edit_text_user_id"
+        app:layout_constraintBottom_toTopOf="@id/edit_text_username"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/text_company_title"/>
 
     <androidx.appcompat.widget.AppCompatEditText
-        android:id="@+id/edit_text_user_id"
+        android:id="@+id/edit_text_username"
         style="@style/EditText.AEM.FilledBox"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:width="@dimen/login_edit_text_width"
-        android:hint="@string/login_user_id_hint"
+        android:hint="@string/login_username_hint"
         android:inputType="text"
-        app:layout_constraintBottom_toBottomOf="@id/edit_text_user_pin"
+        app:layout_constraintBottom_toBottomOf="@id/edit_text_password"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/text_company_slogan"/>
 
     <androidx.appcompat.widget.AppCompatEditText
-        android:id="@+id/edit_text_user_pin"
+        android:id="@+id/edit_text_password"
         style="@style/EditText.AEM.FilledBox"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="@dimen/padding_size_normal"
         android:width="@dimen/login_edit_text_width"
-        android:hint="@string/login_pin_hint"
+        android:hint="@string/login_password_hint"
         android:inputType="text"
         app:layout_constraintBottom_toBottomOf="@id/btn_login"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/edit_text_user_id"/>
+        app:layout_constraintTop_toBottomOf="@id/edit_text_username"/>
 
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/btn_login"
@@ -70,6 +70,6 @@
         android:textAllCaps="true"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/edit_text_user_pin"/>
+        app:layout_constraintTop_toBottomOf="@id/edit_text_password"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
