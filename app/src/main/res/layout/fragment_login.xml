@@ -1,75 +1,82 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout
+<ScrollView
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/colorPrimaryDark">
 
-    <androidx.appcompat.widget.AppCompatTextView
-        android:id="@+id/text_company_title"
-        style="@style/Text.AEM.Heading3"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/padding_size_extra_massive"
-        android:text="@string/company_name"
-        android:textColor="?attr/LoginCompanyNameColor"
-        app:layout_constraintBottom_toTopOf="@id/text_company_slogan"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_chainStyle="packed"/>
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
 
-    <androidx.appcompat.widget.AppCompatTextView
-        android:id="@+id/text_company_slogan"
-        style="@style/Text.AEM.Caption.Light"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:paddingBottom="@dimen/padding_size_massive"
-        android:text="@string/company_slogan"
-        app:layout_constraintBottom_toTopOf="@id/edit_text_username"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/text_company_title"/>
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/text_company_title"
+            style="@style/Text.AEM.Heading3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/padding_size_extra_massive"
+            android:text="@string/company_name"
+            android:textColor="?attr/LoginCompanyNameColor"
+            app:layout_constraintBottom_toTopOf="@id/text_company_slogan"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_chainStyle="packed"/>
 
-    <androidx.appcompat.widget.AppCompatEditText
-        android:id="@+id/edit_text_username"
-        style="@style/EditText.AEM.FilledBox"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:width="@dimen/login_edit_text_width"
-        android:hint="@string/login_username_hint"
-        android:inputType="text"
-        app:layout_constraintBottom_toBottomOf="@id/edit_text_password"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/text_company_slogan"/>
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/text_company_slogan"
+            style="@style/Text.AEM.Caption.Light"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingBottom="@dimen/padding_size_massive"
+            android:text="@string/company_slogan"
+            app:layout_constraintBottom_toTopOf="@id/edit_text_username"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/text_company_title"/>
 
-    <androidx.appcompat.widget.AppCompatEditText
-        android:id="@+id/edit_text_password"
-        style="@style/EditText.AEM.FilledBox"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/padding_size_normal"
-        android:width="@dimen/login_edit_text_width"
-        android:hint="@string/login_password_hint"
-        android:inputType="text"
-        app:layout_constraintBottom_toBottomOf="@id/btn_login"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/edit_text_username"/>
+        <androidx.appcompat.widget.AppCompatEditText
+            android:id="@+id/edit_text_username"
+            style="@style/EditText.AEM.FilledBox"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:width="@dimen/login_edit_text_width"
+            android:hint="@string/login_username_hint"
+            android:inputType="text"
+            app:layout_constraintBottom_toBottomOf="@id/edit_text_password"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/text_company_slogan"/>
 
-    <androidx.appcompat.widget.AppCompatButton
-        android:id="@+id/btn_login"
-        style="@style/Button.AEM.Filled"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/padding_size_normal"
-        android:width="@dimen/login_edit_text_width"
-        android:text="@string/login"
-        android:textAllCaps="true"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/edit_text_password"/>
+        <androidx.appcompat.widget.AppCompatEditText
+            android:id="@+id/edit_text_password"
+            style="@style/EditText.AEM.FilledBox"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/padding_size_normal"
+            android:width="@dimen/login_edit_text_width"
+            android:hint="@string/login_password_hint"
+            android:inputType="textPassword"
+            app:layout_constraintBottom_toBottomOf="@id/btn_login"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/edit_text_username"/>
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/btn_login"
+            style="@style/Button.AEM.Filled"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/padding_size_normal"
+            android:layout_marginBottom="@dimen/padding_size_large"
+            app:layout_constraintBottom_toBottomOf="parent"
+            android:width="@dimen/login_edit_text_width"
+            android:text="@string/login"
+            android:textAllCaps="true"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/edit_text_password"/>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</ScrollView>
