@@ -14,24 +14,21 @@ import retrofit2.Callback
 import retrofit2.Response
 
 
-
-
 class UserRepository {
 
     private val apiService: UserService
         get() = RetrofitClient.getClient(BASE_URL)!!.create(UserService::class.java)
 
-    fun postLogin(username: String, password: String) : LiveData<Resource<LoginPostResponse>> {
+    fun postLogin(username: String, password: String): LiveData<Resource<LoginPostResponse>> {
         val data = MutableLiveData<Resource<LoginPostResponse>>()
         val loginPostData = LoginPostData(username = username, password = password)
 
         apiService.postLogin(loginPostData).enqueue(object : Callback<LoginPostResponse> {
             override fun onResponse(call: Call<LoginPostResponse>?, response: Response<LoginPostResponse>?) {
-                if(response?.isSuccessful != null && response.isSuccessful) {
+                if (response?.isSuccessful != null && response.isSuccessful) {
                     data.value = Resource.success(response.body())
                 } else {
-                    val errorConverter = RetrofitClient.getClient(BASE_URL)?.
-                            responseBodyConverter<LoginPostResponse>(LoginPostResponse::class.java, arrayOfNulls<Annotation>(0))
+                    val errorConverter = RetrofitClient.getClient(BASE_URL)?.responseBodyConverter<LoginPostResponse>(LoginPostResponse::class.java, arrayOfNulls<Annotation>(0))
 
                     if (response?.errorBody() != null) {
                         val error = errorConverter?.convert(response.errorBody())
@@ -40,6 +37,7 @@ class UserRepository {
                 }
 
             }
+
             override fun onFailure(call: Call<LoginPostResponse>?, t: Throwable?) {
                 data.value = Resource.error(AppException(t))
             }

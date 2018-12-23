@@ -10,6 +10,7 @@ class PreferencesHelper(context: Context) {
 
     private val preferences = PreferenceManager.getDefaultSharedPreferences(context)
 
+    // val token = PreferencesHelper(context!!.applicationContext).token
     // save token
     var token = preferences.getString(TOKEN, "")!!
     set(value) = preferences.edit().putString(TOKEN, value).apply()

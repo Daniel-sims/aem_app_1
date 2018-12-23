@@ -13,8 +13,6 @@ class StyleSheetFragment : Fragment() {
                               savedInstanceState: Bundle?): View? {
         val view = inflater.inflate(R.layout.fragment_style_sheet, container, false)
 
-
-
         return view
     }
 

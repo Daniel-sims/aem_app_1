@@ -146,6 +146,12 @@
         <item name="android:textColor">?attr/LightTextColor</item>
     </style>
 
+    <style name="Text.AEM.Caption.Accent">
+        <item name="android:textColor">?attr/colorAccent</item>
+    </style>
+
+    <!-- Button -->
+
     <style name="Text.AEM.Button" parent="TextAppearance.MaterialComponents.Button">
         <item name="android:textSize">@dimen/text_size_normal</item>
         <item name="android:textColor">?attr/PrimaryTextColor</item>
@@ -176,7 +182,6 @@
         <item name="android:textColor">?attr/FilledEditTextTextColor</item>
         <item name="android:textColorHint">?attr/FilledEditTextHintTextColor</item>
     </style>
-
 
 
     <!-- endregion -->
