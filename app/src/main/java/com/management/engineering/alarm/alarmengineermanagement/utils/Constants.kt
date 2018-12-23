@@ -1,3 +1,3 @@
 package com.management.engineering.alarm.alarmengineermanagement.utils
 
-const val BASE_URL: String = "https://03860061.ngrok.io"
+const val BASE_URL: String = "https://c225e2fc.ngrok.io"

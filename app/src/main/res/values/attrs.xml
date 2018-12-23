@@ -8,7 +8,7 @@
     <attr name="FilledButtonColor" format="color"/>
     <attr name="FilledButtonTextColor" format="color"/>
 
-    <attr name="FilledEditTextColor" format="color"/>
+    <attr name="FilledEditTextBackground" format="reference"/>
     <attr name="FilledEditTextTextColor" format="color"/>
     <attr name="FilledEditTextHintTextColor" format="color"/>
 

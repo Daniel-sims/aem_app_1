@@ -4,7 +4,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.appcompat.widget.AppCompatButton
+import android.widget.RelativeLayout
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.navigation.Navigation
@@ -13,6 +13,7 @@ import com.management.engineering.alarm.alarmengineermanagement.R
 import com.management.engineering.alarm.alarmengineermanagement.data.models.LoginPostResponse
 import com.management.engineering.alarm.alarmengineermanagement.data.models.Resource
 import com.management.engineering.alarm.alarmengineermanagement.utils.PreferencesHelper
+import com.management.engineering.alarm.alarmengineermanagement.utils.hideKeyboard
 import kotlinx.android.synthetic.main.fragment_login.view.*
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
@@ -24,7 +25,7 @@ class LoginFragment : Fragment() {
                               savedInstanceState: Bundle?): View? {
         val view = inflater.inflate(R.layout.fragment_login, container, false)
 
-        view.findViewById<AppCompatButton>(R.id.btn_login).setOnClickListener {
+        view.findViewById<RelativeLayout>(R.id.btn_login).setOnClickListener {
             onLogin(view)
         }
 
@@ -33,6 +34,7 @@ class LoginFragment : Fragment() {
 
     private fun onLogin(view: View) {
         if (view.edit_text_username.text?.length != 0 && view.edit_text_password.text?.length != 0) {
+            view.hideKeyboard()
             view.btn_login.isEnabled = false
 
             viewModel.postLogin(view.edit_text_username.text.toString(), view.edit_text_password.text.toString()).observe(this, Observer<Resource<LoginPostResponse>> { resource ->
@@ -69,5 +71,4 @@ class LoginFragment : Fragment() {
                 Snackbar.LENGTH_SHORT
         ).show()
     }
-
 }

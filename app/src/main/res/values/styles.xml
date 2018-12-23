@@ -15,7 +15,7 @@
         <item name="FilledButtonColor">@color/colorAccent</item>
         <item name="FilledButtonTextColor">@color/white</item>
 
-        <item name="FilledEditTextColor">@color/black_10pc</item>
+        <item name="FilledEditTextBackground">@drawable/edit_text_background_black_10pc</item>
         <item name="FilledEditTextTextColor">@color/colorAccent</item>
         <item name="FilledEditTextHintTextColor">@color/white_10pc</item>
 
@@ -146,6 +146,16 @@
         <item name="android:textColor">?attr/LightTextColor</item>
     </style>
 
+    <style name="Text.AEM.Button" parent="TextAppearance.MaterialComponents.Button">
+        <item name="android:textSize">@dimen/text_size_normal</item>
+        <item name="android:textColor">?attr/PrimaryTextColor</item>
+        <item name="android:fontFamily">@font/roboto_medium</item>
+    </style>
+
+    <style name="Text.AEM.Button.Light">
+        <item name="android:textColor">?attr/LightTextColor</item>
+    </style>
+
     <!-- Button -->
     <style name="Button.AEM.Filled" parent="Widget.MaterialComponents.Button">
         <item name="android:textSize">@dimen/text_size_normal</item>
@@ -154,7 +164,6 @@
         <item name="android:paddingEnd">@dimen/padding_size_normal</item>
         <item name="android:background">?attr/FilledButtonColor</item>
         <item name="android:textColor">?attr/FilledButtonTextColor</item>
-
     </style>
 
     <!-- EditText -->
@@ -163,7 +172,7 @@
         <item name="android:fontFamily">@font/roboto_medium</item>
         <item name="android:paddingStart">@dimen/padding_size_normal</item>
         <item name="android:paddingEnd">@dimen/padding_size_normal</item>
-        <item name="android:background">?attr/FilledEditTextColor</item>
+        <item name="android:background">?attr/FilledEditTextBackground</item>
         <item name="android:textColor">?attr/FilledEditTextTextColor</item>
         <item name="android:textColorHint">?attr/FilledEditTextHintTextColor</item>
     </style>

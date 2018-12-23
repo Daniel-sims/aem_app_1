@@ -21,8 +21,16 @@
     <dimen name="padding_size_small">8dp</dimen>
     <dimen name="padding_size_extra_small">4dp</dimen>
 
+    <dimen name="corner_radius_normal">4dp</dimen>
+
+    <dimen name="component_size_large">24dp</dimen>
+
+    <dimen name="edit_text_height">48dp</dimen>
+
+    <dimen name="button_height">48dp</dimen>
 
     <!-- Login screen -->
     <dimen name="login_edit_text_width">240dp</dimen>
+
 
 </resources>
