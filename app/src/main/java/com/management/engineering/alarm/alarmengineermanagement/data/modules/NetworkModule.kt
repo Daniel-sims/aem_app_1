@@ -4,7 +4,7 @@ import com.management.engineering.alarm.alarmengineermanagement.data.services.Us
 import org.koin.dsl.module.module
 
 val networkModule = module {
-    single { UserService }
 
+    single { UserService }
 
 }

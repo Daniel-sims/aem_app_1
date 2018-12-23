@@ -49,8 +49,6 @@ class LoginFragment : Fragment() {
                                             PreferencesHelper(context!!.applicationContext).token =
                                                     resource.data?.token.toString()
 
-                                            val x = resource.data?.firstName
-                                            val i = resource.data?.lastName
                                             Navigation.findNavController(view).navigate(
                                                     R.id.action_loginFragment_to_homeFragment,
                                                     bundleOf(
