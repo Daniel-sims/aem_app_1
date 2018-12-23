@@ -22,25 +22,53 @@ android {
         }
     }
 }
+def libraries = [
+        appCompatVersion        : "1.1.0-alpha01",
+        kotlinVersion           : "1.3.11",
+        ktxVersion              : "1.0.1",
+        koinVersion             : "1.0.2",
+        constraintLayoutVersion : "1.1.3",
+        androidExtensionsVersion: "2.1.0-alpha01",
+        navigationVersion       : "1.0.0-alpha08",
+        retrofitVersion         : "2.4.0",
+        junitVersion            : "4.12",
+        testRunnerVersion       : "1.1.1",
+        esspressoCoreVersion    : "3.1.1"
+]
 
 dependencies {
 
     implementation fileTree(include: ['*.jar'], dir: 'libs')
-    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
-    implementation 'androidx.appcompat:appcompat:1.1.0-alpha01'
-    implementation 'androidx.constraintlayout:constraintlayout:1.1.3'
+    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:${libraries.kotlinVersion}"
+    implementation "androidx.appcompat:appcompat:${libraries.appCompatVersion}"
 
-    implementation 'androidx.core:core-ktx:1.0.1'
+    implementation "androidx.core:core-ktx:${libraries.ktxVersion}"
 
-    testImplementation 'junit:junit:4.12'
-    androidTestImplementation 'androidx.test:runner:1.1.1'
-    androidTestImplementation 'androidx.test.espresso:espresso-core:3.1.1'
+    implementation "androidx.constraintlayout:constraintlayout:${libraries.constraintLayoutVersion}"
 
+    implementation "androidx.lifecycle:lifecycle-extensions:${libraries.androidExtensionsVersion}"
 
-    implementation "android.arch.navigation:navigation-fragment:1.0.0-alpha08" // use -ktx for Kotlin
-    implementation "android.arch.navigation:navigation-ui:1.0.0-alpha08" // use -ktx for Kotlin
+    // Testing
+    testImplementation "junit:junit:${libraries.junitVersion}"
+    androidTestImplementation "androidx.test:runner:${libraries.testRunnerVersion}"
+    androidTestImplementation "androidx.test.espresso:espresso-core:${libraries.esspressoCoreVersion}"
 
-    // optional - Test helpers
-    // this library depends on the Kotlin standard library
-    androidTestImplementation "android.arch.navigation:navigation-testing:1.0.0-alpha08"
+    // Navigation
+    implementation "android.arch.navigation:navigation-fragment:${libraries.navigationVersion}"
+    implementation "android.arch.navigation:navigation-ui:${libraries.navigationVersion}"
+
+    androidTestImplementation "android.arch.navigation:navigation-testing:${libraries.navigationVersion}"
+
+    // Koin
+    implementation "org.koin:koin-android:${libraries.koinVersion}"
+    implementation "org.koin:koin-androidx-scope:${libraries.koinVersion}"
+    implementation "org.koin:koin-androidx-viewmodel:${libraries.koinVersion}"
+
+    // Retrofit
+    implementation "com.squareup.retrofit2:retrofit:${libraries.retrofitVersion}"
+    implementation "com.squareup.retrofit2:converter-gson:${libraries.retrofitVersion}"
+
+    implementation 'com.squareup.okhttp3:okhttp:3.11.0'
+    implementation 'com.squareup.okhttp3:logging-interceptor:3.4.1'
+
 }

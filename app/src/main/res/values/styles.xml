@@ -1,13 +1,27 @@
 <resources>
 
     <!-- Base application theme. -->
-    <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
+    <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
         <!-- Customize your theme here. -->
         <item name="colorPrimary">@color/colorPrimary</item>
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="colorAccent">@color/colorAccent</item>
 
+        <!-- Common -->
         <item name="PrimaryTextColor">@color/primary_text_color</item>
+        <item name="LightTextColor">@color/white</item>
+
+        <!-- Widgets -->
+        <item name="FilledButtonColor">@color/colorAccent</item>
+        <item name="FilledButtonTextColor">@color/white</item>
+
+        <item name="FilledEditTextBackground">@drawable/edit_text_background_black_10pc</item>
+        <item name="FilledEditTextTextColor">@color/colorAccent</item>
+        <item name="FilledEditTextHintTextColor">@color/white_10pc</item>
+
+        <!-- LoginPostResponse screen -->
+        <item name="LoginCompanyNameColor">@color/colorAccent</item>
+
     </style>
 
     <!-- region text styles -->
@@ -18,11 +32,19 @@
         <item name="android:fontFamily">@font/roboto_light</item>
     </style>
 
+    <style name="Text.AEM.Heading1.Light">
+        <item name="android:textColor">?attr/LightTextColor</item>
+    </style>
+
     <!-- H2 -->
     <style name="Text.AEM.Heading2" parent="TextAppearance.MaterialComponents.Headline2">
         <item name="android:textSize">@dimen/text_size_huge</item>
         <item name="android:textColor">?attr/PrimaryTextColor</item>
         <item name="android:fontFamily">@font/roboto_light</item>
+    </style>
+
+    <style name="Text.AEM.Heading2.Light">
+        <item name="android:textColor">?attr/LightTextColor</item>
     </style>
 
     <!-- H3 -->
@@ -32,11 +54,19 @@
         <item name="android:fontFamily">@font/roboto_regular</item>
     </style>
 
+    <style name="Text.AEM.Heading3.Light">
+        <item name="android:textColor">?attr/LightTextColor</item>
+    </style>
+
     <!-- H4 -->
     <style name="Text.AEM.Heading4" parent="TextAppearance.MaterialComponents.Headline4">
         <item name="android:textSize">@dimen/text_size_massive</item>
         <item name="android:textColor">?attr/PrimaryTextColor</item>
         <item name="android:fontFamily">@font/roboto_regular</item>
+    </style>
+
+    <style name="Text.AEM.Heading4.Light">
+        <item name="android:textColor">?attr/LightTextColor</item>
     </style>
 
     <!-- H5 -->
@@ -46,11 +76,19 @@
         <item name="android:fontFamily">@font/roboto_regular</item>
     </style>
 
+    <style name="Text.AEM.Heading5.Light">
+        <item name="android:textColor">?attr/LightTextColor</item>
+    </style>
+
     <!-- H6 -->
     <style name="Text.AEM.Heading6" parent="TextAppearance.MaterialComponents.Headline6">
         <item name="android:textSize">@dimen/text_size_large</item>
         <item name="android:textColor">?attr/PrimaryTextColor</item>
         <item name="android:fontFamily">@font/roboto_medium</item>
+    </style>
+
+    <style name="Text.AEM.Heading6.Light">
+        <item name="android:textColor">?attr/LightTextColor</item>
     </style>
 
     <!-- Subtitle 1 -->
@@ -60,11 +98,19 @@
         <item name="android:fontFamily">@font/roboto_regular</item>
     </style>
 
+    <style name="Text.AEM.Subtitle1.Light">
+        <item name="android:textColor">?attr/LightTextColor</item>
+    </style>
+
     <!-- Subtitle 2 -->
     <style name="Text.AEM.Subtitle2" parent="TextAppearance.MaterialComponents.Subtitle2">
         <item name="android:textSize">@dimen/text_size_normal</item>
         <item name="android:textColor">?attr/PrimaryTextColor</item>
         <item name="android:fontFamily">@font/roboto_medium</item>
+    </style>
+
+    <style name="Text.AEM.Subtitle2.Light">
+        <item name="android:textColor">?attr/LightTextColor</item>
     </style>
 
     <!-- Body 1 -->
@@ -74,11 +120,19 @@
         <item name="android:fontFamily">@font/roboto_regular</item>
     </style>
 
+    <style name="Text.AEM.Body1.Light">
+        <item name="android:textColor">?attr/LightTextColor</item>
+    </style>
+
     <!-- Body 2 -->
     <style name="Text.AEM.Body2" parent="TextAppearance.MaterialComponents.Body2">
         <item name="android:textSize">@dimen/text_size_normal</item>
         <item name="android:textColor">?attr/PrimaryTextColor</item>
         <item name="android:fontFamily">@font/roboto_regular</item>
+    </style>
+
+    <style name="Text.AEM.Body2.Light">
+        <item name="android:textColor">?attr/LightTextColor</item>
     </style>
 
     <!-- Caption -->
@@ -88,15 +142,47 @@
         <item name="android:fontFamily">@font/roboto_regular</item>
     </style>
 
+    <style name="Text.AEM.Caption.Light">
+        <item name="android:textColor">?attr/LightTextColor</item>
+    </style>
+
+    <style name="Text.AEM.Caption.Accent">
+        <item name="android:textColor">?attr/colorAccent</item>
+    </style>
+
     <!-- Button -->
-    <style name="Button.AEM.Filled" parent="TextAppearance.MaterialComponents.Button">
+
+    <style name="Text.AEM.Button" parent="TextAppearance.MaterialComponents.Button">
         <item name="android:textSize">@dimen/text_size_normal</item>
         <item name="android:textColor">?attr/PrimaryTextColor</item>
         <item name="android:fontFamily">@font/roboto_medium</item>
+    </style>
+
+    <style name="Text.AEM.Button.Light">
+        <item name="android:textColor">?attr/LightTextColor</item>
+    </style>
+
+    <!-- Button -->
+    <style name="Button.AEM.Filled" parent="Widget.MaterialComponents.Button">
+        <item name="android:textSize">@dimen/text_size_normal</item>
+        <item name="android:fontFamily">@font/roboto_medium</item>
         <item name="android:paddingStart">@dimen/padding_size_normal</item>
         <item name="android:paddingEnd">@dimen/padding_size_normal</item>
-
+        <item name="android:background">?attr/FilledButtonColor</item>
+        <item name="android:textColor">?attr/FilledButtonTextColor</item>
     </style>
+
+    <!-- EditText -->
+    <style name="EditText.AEM.FilledBox" parent="Widget.MaterialComponents.TextInputLayout.FilledBox">
+        <item name="android:textSize">@dimen/text_size_normal</item>
+        <item name="android:fontFamily">@font/roboto_medium</item>
+        <item name="android:paddingStart">@dimen/padding_size_normal</item>
+        <item name="android:paddingEnd">@dimen/padding_size_normal</item>
+        <item name="android:background">?attr/FilledEditTextBackground</item>
+        <item name="android:textColor">?attr/FilledEditTextTextColor</item>
+        <item name="android:textColorHint">?attr/FilledEditTextHintTextColor</item>
+    </style>
+
 
     <!-- endregion -->
 
