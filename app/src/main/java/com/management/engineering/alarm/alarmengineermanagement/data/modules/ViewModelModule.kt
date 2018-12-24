@@ -1,5 +1,6 @@
 package com.management.engineering.alarm.alarmengineermanagement.data.modules
 
+import com.management.engineering.alarm.alarmengineermanagement.features.clients.ClientsViewModel
 import com.management.engineering.alarm.alarmengineermanagement.features.home.HomeViewModel
 import com.management.engineering.alarm.alarmengineermanagement.features.login.LoginViewModel
 import org.koin.androidx.viewmodel.ext.koin.viewModel
@@ -11,4 +12,5 @@ val viewModelModule = module {
 
     viewModel { HomeViewModel(get()) }
 
+    viewModel { ClientsViewModel() }
 }

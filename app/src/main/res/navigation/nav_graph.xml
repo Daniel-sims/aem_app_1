@@ -1,40 +1,51 @@
 <?xml version="1.0" encoding="utf-8"?>
 <navigation xmlns:android="http://schemas.android.com/apk/res/android"
-            xmlns:app="http://schemas.android.com/apk/res-auto"
-            xmlns:tools="http://schemas.android.com/tools"
-            android:id="@+id/nav_graph"
-            app:startDestination="@id/loginFragment">
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/loginFragment">
 
 
     <fragment
-            android:id="@+id/homeFragment"
-            android:name="com.management.engineering.alarm.alarmengineermanagement.features.home.HomeFragment"
-            android:label="HomeFragment">
+        android:id="@+id/homeFragment"
+        android:name="com.management.engineering.alarm.alarmengineermanagement.features.home.HomeFragment"
+        android:label="HomeFragment">
 
         <action
-                android:id="@+id/action_homeFragment_to_styleSheetFragment"
-                app:destination="@id/styleSheetFragment"/>
+            android:id="@+id/action_homeFragment_to_styleSheetFragment"
+            app:destination="@id/styleSheetFragment" />
+        <action
+            android:id="@+id/action_homeFragment_to_clientsFragment"
+            app:destination="@id/clientsFragment"
+            app:enterAnim="@anim/slide_in_from_right"
+            app:exitAnim="@anim/slide_out_to_left"
+            app:popEnterAnim="@anim/slide_in_from_left"
+            app:popExitAnim="@anim/slide_out_to_right" />
 
     </fragment>
 
     <fragment
-            android:id="@+id/loginFragment"
-            android:name="com.management.engineering.alarm.alarmengineermanagement.features.login.LoginFragment"
-            android:label="LoginFragment">
+        android:id="@+id/loginFragment"
+        android:name="com.management.engineering.alarm.alarmengineermanagement.features.login.LoginFragment"
+        android:label="LoginFragment">
 
         <action
-                android:id="@+id/action_loginFragment_to_homeFragment"
-                app:destination="@id/homeFragment"
-                app:enterAnim="@anim/slide_in_from_right"
-                app:exitAnim="@anim/slide_out_to_left"
-                app:popEnterAnim="@anim/slide_in_from_left"
-                app:popExitAnim="@anim/slide_out_to_right"/>
+            android:id="@+id/action_loginFragment_to_homeFragment"
+            app:destination="@id/homeFragment"
+            app:enterAnim="@anim/slide_in_from_right"
+            app:exitAnim="@anim/slide_out_to_left"
+            app:popEnterAnim="@anim/slide_in_from_left"
+            app:popExitAnim="@anim/slide_out_to_right" />
 
     </fragment>
 
     <fragment
-            android:id="@+id/styleSheetFragment"
-            android:name="com.management.engineering.alarm.alarmengineermanagement.features.stylesheet.StyleSheetFragment"
-            android:label="StyleSheetFragment"/>
+        android:id="@+id/styleSheetFragment"
+        android:name="com.management.engineering.alarm.alarmengineermanagement.features.stylesheet.StyleSheetFragment"
+        android:label="StyleSheetFragment" />
+    <fragment
+        android:id="@+id/clientsFragment"
+        android:name="com.management.engineering.alarm.alarmengineermanagement.features.clients.ClientsFragment"
+        android:label="ClientsFragment" />
 
 </navigation>

@@ -10,6 +10,7 @@
         <!-- Common -->
         <item name="PrimaryTextColor">@color/primary_text_color</item>
         <item name="LightTextColor">@color/white</item>
+        <item name="NavigationBackIconLight">@drawable/ic_back_white_24px</item>
 
         <!-- Widgets -->
         <item name="FilledButtonColor">@color/colorAccent</item>

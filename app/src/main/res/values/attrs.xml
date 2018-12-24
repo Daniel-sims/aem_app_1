@@ -3,6 +3,7 @@
     <!-- Common -->
     <attr name="PrimaryTextColor" format="color"/>
     <attr name="LightTextColor" format="color"/>
+    <attr name="NavigationBackIconLight" format="reference"/>
 
     <!-- Widgets -->
     <attr name="FilledButtonColor" format="color"/>

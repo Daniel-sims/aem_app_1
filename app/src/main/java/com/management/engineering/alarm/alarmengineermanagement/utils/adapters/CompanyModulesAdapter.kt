@@ -10,7 +10,8 @@ import com.management.engineering.alarm.alarmengineermanagement.utils.inflate
 import kotlinx.android.synthetic.main.item_company_module.view.*
 
 class CompanyModulesAdapter(
-        private val modules: ArrayList<CompanyModuleResponse>
+        private val modules: ArrayList<CompanyModuleResponse>,
+        var onModuleClicked: ((CompanyModuleResponse) -> Unit)? = null
 ) : RecyclerView.Adapter<CompanyModulesAdapter.ModuleHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): CompanyModulesAdapter.ModuleHolder {
@@ -23,7 +24,7 @@ class CompanyModulesAdapter(
         holder.bindModule(modules[position])
     }
 
-    class ModuleHolder(v: View) : RecyclerView.ViewHolder(v), View.OnClickListener {
+    inner class ModuleHolder(v: View) : RecyclerView.ViewHolder(v), View.OnClickListener {
 
         private var view: View = v
         private var module: CompanyModuleResponse? = null
@@ -33,7 +34,7 @@ class CompanyModulesAdapter(
         }
 
         override fun onClick(v: View) {
-
+            onModuleClicked?.invoke(module!!)
         }
 
         fun bindModule(module: CompanyModuleResponse) {
