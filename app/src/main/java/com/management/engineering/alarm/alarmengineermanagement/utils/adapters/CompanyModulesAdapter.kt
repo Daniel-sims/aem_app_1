@@ -1,11 +1,11 @@
 package com.management.engineering.alarm.alarmengineermanagement.utils.adapters
 
-import android.util.Log
 import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.management.engineering.alarm.alarmengineermanagement.R
 import com.management.engineering.alarm.alarmengineermanagement.data.models.CompanyModuleResponse
+import com.management.engineering.alarm.alarmengineermanagement.utils.GlideApp
 import com.management.engineering.alarm.alarmengineermanagement.utils.inflate
 import kotlinx.android.synthetic.main.item_company_module.view.*
 
@@ -33,18 +33,17 @@ class CompanyModulesAdapter(
         }
 
         override fun onClick(v: View) {
-            Log.d("RecyclerView", "CLICK!")
-        }
 
-        companion object {
-            private val PHOTO_KEY = "PHOTO"
         }
 
         fun bindModule(module: CompanyModuleResponse) {
             this.module = module
 
             view.text_module_title.text = module.name
+
+            GlideApp.with(view.context)
+                    .load(module.imageUrl)
+                    .into(view.image_module_image)
         }
     }
-
 }

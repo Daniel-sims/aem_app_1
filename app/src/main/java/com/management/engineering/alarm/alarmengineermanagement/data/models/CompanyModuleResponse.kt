@@ -8,6 +8,9 @@ data class CompanyModuleResponse(
         val name: String,
 
         @SerializedName("slug_field")
-        val moduleSlug: String
+        val moduleSlug: String,
+
+        @SerializedName("image_url")
+        val imageUrl: String
 
 )

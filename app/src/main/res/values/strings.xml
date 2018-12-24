@@ -9,4 +9,9 @@
     <string name="login_password_hint">password</string>
     <string name="fill_in_all_fields_error">Please fill in all fields.</string>
 
+    <!-- Home Strings -->
+    <string name="loading_modules">Loading modules…</string>
+    <string name="failed_to_load_modules_error">Failed to load modules.</string>
+    <string name="no_modules_found_error">No Modules Found</string>
+
 </resources>

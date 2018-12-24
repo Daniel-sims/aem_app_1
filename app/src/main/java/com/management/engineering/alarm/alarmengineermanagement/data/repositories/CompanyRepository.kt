@@ -3,6 +3,7 @@ package com.management.engineering.alarm.alarmengineermanagement.data.repositori
 import android.content.Context
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
+import com.management.engineering.alarm.alarmengineermanagement.data.models.ClientResponse
 import com.management.engineering.alarm.alarmengineermanagement.data.models.CompanyResponse
 import com.management.engineering.alarm.alarmengineermanagement.data.models.Resource
 import com.management.engineering.alarm.alarmengineermanagement.data.services.CompanyService
@@ -32,5 +33,23 @@ class CompanyRepository(val context: Context) {
         })
 
         return company
+    }
+
+    fun getClients(): LiveData<Resource<List<ClientResponse>>> {
+        val clients = MutableLiveData<Resource<List<ClientResponse>>>()
+
+        RetrofitClient.getClient(BASE_URL)!!.create(CompanyService::class.java).getClients().enqueue(object : Callback<List<ClientResponse>> {
+            override fun onResponse(call: Call<List<ClientResponse>>?, response: Response<List<ClientResponse>>?) {
+                if (response?.isSuccessful != null && response.isSuccessful) {
+                    clients.value = Resource.success(response.body())
+                }
+            }
+
+            override fun onFailure(call: Call<List<ClientResponse>>?, t: Throwable?) {
+                clients.value = Resource.error(AppException(t))
+            }
+        })
+
+        return clients
     }
 }

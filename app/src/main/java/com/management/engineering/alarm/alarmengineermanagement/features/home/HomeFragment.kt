@@ -7,6 +7,7 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.GridLayoutManager
+import com.google.android.material.snackbar.Snackbar
 import com.management.engineering.alarm.alarmengineermanagement.R
 import com.management.engineering.alarm.alarmengineermanagement.data.models.CompanyModuleResponse
 import com.management.engineering.alarm.alarmengineermanagement.data.models.CompanyResponse
@@ -19,7 +20,6 @@ import org.koin.androidx.viewmodel.ext.android.viewModel
 class HomeFragment : Fragment() {
 
     private val viewModel: HomeViewModel by viewModel()
-    private lateinit var gridLayoutManager: GridLayoutManager
     private lateinit var adapter: CompanyModulesAdapter
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
@@ -36,33 +36,45 @@ class HomeFragment : Fragment() {
 
         initCompanyModules(view)
 
-
-
         return view
     }
 
     private fun initCompanyModules(view: View) {
-        gridLayoutManager = GridLayoutManager(context, 2)
-        view.rv_company_modules.layoutManager = gridLayoutManager
+        view.rv_company_modules.layoutManager = GridLayoutManager(context, 2)
 
         viewModel.getCompany().observe(this,
                 Observer<Resource<CompanyResponse>> { resource ->
-                    if (resource != null) {
+                    if (resource != null)
                         when (resource.status) {
                             Resource.Status.SUCCESS -> {
                                 adapter = CompanyModulesAdapter(resource.data?.modules as ArrayList<CompanyModuleResponse>)
                                 view.rv_company_modules.adapter = adapter
+
+                                view.layout_loading_modules.visibility = View.GONE
+
+                                if (resource.data.modules.isEmpty()) {
+                                    view.layout_no_modules.visibility = View.VISIBLE
+                                } else {
+                                    view.rv_company_modules.visibility = View.VISIBLE
+                                }
                             }
 
                             Resource.Status.FAILED -> {
-
+                                showErrorSnackbar(getString(R.string.failed_to_load_modules_error), view)
                             }
 
                             Resource.Status.ERROR -> {
-
+                                showErrorSnackbar("Error: " + resource.exception?.exceptin?.message, view)
                             }
                         }
-                    }
                 })
+    }
+
+    private fun showErrorSnackbar(message: String, view: View) {
+        Snackbar.make(
+                view,
+                message,
+                Snackbar.LENGTH_SHORT
+        ).show()
     }
 }
