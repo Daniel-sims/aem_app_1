@@ -6,4 +6,5 @@ import org.koin.dsl.module.module
 val userModule = module {
 
     single { UserRepository() }
+
 }

@@ -16,14 +16,13 @@ import retrofit2.Response
 
 class UserRepository {
 
-    private val apiService: UserService
-        get() = RetrofitClient.getClient(BASE_URL)!!.create(UserService::class.java)
+    private val userService: UserService get() = RetrofitClient.getClient(BASE_URL)!!.create(UserService::class.java)
 
     fun postLogin(username: String, password: String): LiveData<Resource<LoginPostResponse>> {
         val data = MutableLiveData<Resource<LoginPostResponse>>()
         val loginPostData = LoginPostData(username = username, password = password)
 
-        apiService.postLogin(loginPostData).enqueue(object : Callback<LoginPostResponse> {
+        userService.postLogin(loginPostData).enqueue(object : Callback<LoginPostResponse> {
             override fun onResponse(call: Call<LoginPostResponse>?, response: Response<LoginPostResponse>?) {
                 if (response?.isSuccessful != null && response.isSuccessful) {
                     data.value = Resource.success(response.body())

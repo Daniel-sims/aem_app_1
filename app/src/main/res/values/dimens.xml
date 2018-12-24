@@ -31,6 +31,9 @@
 
     <!-- Login screen -->
     <dimen name="login_edit_text_width">240dp</dimen>
+    <dimen name="home_module_card_height_and_width">140dp</dimen>
+    <dimen name="module_image_height">100dp</dimen>
+    <dimen name="home_map_image_height">168dp</dimen>
 
 
 </resources>
