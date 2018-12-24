@@ -1,5 +1,6 @@
 package com.management.engineering.alarm.alarmengineermanagement.data.repositories
 
+import android.content.Context
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import com.management.engineering.alarm.alarmengineermanagement.data.models.CompanyResponse
@@ -13,13 +14,12 @@ import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 
-class CompanyRepository(val preferencesHelper: PreferencesHelper) {
-
+class CompanyRepository(val context: Context) {
 
     fun getCompany(): LiveData<Resource<CompanyResponse>> {
         val company = MutableLiveData<Resource<CompanyResponse>>()
 
-        RetrofitClient.getClient(BASE_URL, preferencesHelper.token)!!.create(CompanyService::class.java).getCompany().enqueue(object : Callback<CompanyResponse> {
+        RetrofitClient.getClient(BASE_URL, PreferencesHelper(context.applicationContext).token)!!.create(CompanyService::class.java).getCompany(PreferencesHelper(context.applicationContext).companyId).enqueue(object : Callback<CompanyResponse> {
             override fun onResponse(call: Call<CompanyResponse>?, response: Response<CompanyResponse>?) {
                 if (response?.isSuccessful != null && response.isSuccessful) {
                     company.value = Resource.success(response.body())

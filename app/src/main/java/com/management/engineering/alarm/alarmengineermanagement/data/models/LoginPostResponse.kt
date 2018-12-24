@@ -13,6 +13,8 @@ data class LoginPostResponse(
         val role: String?,
         @SerializedName("company_name")
         val companyName: String?,
+        @SerializedName("company_pk")
+        val companyPk: Int,
         @SerializedName("error")
         val error: Array<String>?,
         @SerializedName("username")

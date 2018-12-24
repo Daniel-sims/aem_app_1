@@ -49,13 +49,17 @@ class LoginFragment : Fragment() {
                                             PreferencesHelper(context!!.applicationContext).token =
                                                     resource.data?.token.toString()
 
+                                            // Store the token in shared preferences
+                                            PreferencesHelper(context!!.applicationContext).companyId =
+                                                    resource.data!!.companyPk
+
                                             Navigation.findNavController(view).navigate(
                                                     R.id.action_loginFragment_to_homeFragment,
                                                     bundleOf(
-                                                            ARG_COMPANY_NAME to resource.data?.companyName,
-                                                            ARG_USER_ROLE to resource.data?.role,
-                                                            ARG_USER_FIRST_NAME to resource.data?.firstName,
-                                                            ARG_USER_LAST_NAME to resource.data?.lastName
+                                                            ARG_COMPANY_NAME to resource.data.companyName,
+                                                            ARG_USER_ROLE to resource.data.role,
+                                                            ARG_USER_FIRST_NAME to resource.data.firstName,
+                                                            ARG_USER_LAST_NAME to resource.data.lastName
                                                     )
                                             )
                                         }

@@ -5,6 +5,6 @@ import org.koin.dsl.module.module
 
 val companyModule = module {
 
-    single { CompanyRepository(get()) }
+    factory { CompanyRepository(get()) }
 
 }
