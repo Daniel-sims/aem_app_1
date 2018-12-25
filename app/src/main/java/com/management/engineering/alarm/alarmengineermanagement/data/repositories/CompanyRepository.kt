@@ -38,7 +38,7 @@ class CompanyRepository(val context: Context) {
     fun getClients(): LiveData<Resource<List<ClientResponse>>> {
         val clients = MutableLiveData<Resource<List<ClientResponse>>>()
 
-        RetrofitClient.getClient(BASE_URL)!!.create(CompanyService::class.java).getClients().enqueue(object : Callback<List<ClientResponse>> {
+        RetrofitClient.getClient(BASE_URL, PreferencesHelper(context.applicationContext).token)!!.create(CompanyService::class.java).getClients().enqueue(object : Callback<List<ClientResponse>> {
             override fun onResponse(call: Call<List<ClientResponse>>?, response: Response<List<ClientResponse>>?) {
                 if (response?.isSuccessful != null && response.isSuccessful) {
                     clients.value = Resource.success(response.body())

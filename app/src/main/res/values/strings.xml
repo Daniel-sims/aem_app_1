@@ -14,4 +14,12 @@
     <string name="failed_to_load_modules_error">Failed to load modules.</string>
     <string name="no_modules_found_error">No Modules Found</string>
 
+    <!-- Client strings -->
+    <string name="failed_to_clients_error">Failed to load clients.</string>
+    <string name="no_clients_found_error">No Clients found.</string>
+    <string name="loading_clients">Loading clients…</string>
+    <string name="customers">Customers</string>
+    <string name="active_jobs">Active Jobs</string>
+    <string name="total_jobs">Total Jobs</string>
+
 </resources>

@@ -7,6 +7,9 @@ data class ClientResponse(
         @SerializedName("id")
         val pk: Int,
 
+        @SerializedName("name")
+        val name: String,
+
         @SerializedName("account_number")
         val accountNumber: String,
 
