@@ -1,5 +1,7 @@
 package com.management.engineering.alarm.alarmengineermanagement.data.models
 
+import android.os.Parcel
+import android.os.Parcelable
 import com.google.gson.annotations.SerializedName
 
 data class ClientResponse(
@@ -31,4 +33,40 @@ data class ClientResponse(
         @SerializedName("customer")
         val customers: List<CustomerResponse>
 
-)
+) : Parcelable {
+    constructor(parcel: Parcel) : this(
+            parcel.readInt(),
+            parcel.readString(),
+            parcel.readString(),
+            parcel.readString(),
+            parcel.readString(),
+            parcel.readString(),
+            parcel.readString(),
+            parcel.readString(),
+            TODO("customers"))
+
+    override fun writeToParcel(parcel: Parcel, flags: Int) {
+        parcel.writeInt(pk)
+        parcel.writeString(name)
+        parcel.writeString(accountNumber)
+        parcel.writeString(mobileNumber)
+        parcel.writeString(landlineNumber)
+        parcel.writeString(email)
+        parcel.writeString(description)
+        parcel.writeString(systemDetails)
+    }
+
+    override fun describeContents(): Int {
+        return 0
+    }
+
+    companion object CREATOR : Parcelable.Creator<ClientResponse> {
+        override fun createFromParcel(parcel: Parcel): ClientResponse {
+            return ClientResponse(parcel)
+        }
+
+        override fun newArray(size: Int): Array<ClientResponse?> {
+            return arrayOfNulls(size)
+        }
+    }
+}

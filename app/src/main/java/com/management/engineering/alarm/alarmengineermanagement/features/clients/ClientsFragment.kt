@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.core.os.bundleOf
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.navigation.Navigation
@@ -12,6 +13,7 @@ import com.google.android.material.snackbar.Snackbar
 import com.management.engineering.alarm.alarmengineermanagement.R
 import com.management.engineering.alarm.alarmengineermanagement.data.models.ClientResponse
 import com.management.engineering.alarm.alarmengineermanagement.data.models.Resource
+import com.management.engineering.alarm.alarmengineermanagement.utils.ARG_CLIENT
 import com.management.engineering.alarm.alarmengineermanagement.utils.adapters.ClientsAdapter
 import kotlinx.android.synthetic.main.fragment_clients.view.*
 import org.koin.androidx.viewmodel.ext.android.viewModel
@@ -43,7 +45,8 @@ class ClientsFragment : Fragment() {
                                 view.rv_clients.adapter = adapter
 
                                 adapter.onModuleClicked = { client ->
-
+                                    Navigation.findNavController(view).navigate(R.id.action_clientsFragment_to_clientFragment,
+                                            bundleOf(ARG_CLIENT to client))
                                 }
 
                                 view.layout_loading_clients.visibility = View.GONE

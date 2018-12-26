@@ -12,9 +12,6 @@
         android:label="HomeFragment">
 
         <action
-            android:id="@+id/action_homeFragment_to_styleSheetFragment"
-            app:destination="@id/styleSheetFragment" />
-        <action
             android:id="@+id/action_homeFragment_to_clientsFragment"
             app:destination="@id/clientsFragment"
             app:enterAnim="@anim/slide_in_from_right"
@@ -40,12 +37,23 @@
     </fragment>
 
     <fragment
-        android:id="@+id/styleSheetFragment"
-        android:name="com.management.engineering.alarm.alarmengineermanagement.features.stylesheet.StyleSheetFragment"
-        android:label="StyleSheetFragment" />
-    <fragment
         android:id="@+id/clientsFragment"
         android:name="com.management.engineering.alarm.alarmengineermanagement.features.clients.ClientsFragment"
-        android:label="ClientsFragment" />
+        android:label="ClientsFragment">
+
+        <action
+            android:id="@+id/action_clientsFragment_to_clientFragment"
+            app:destination="@id/clientFragment"
+            app:enterAnim="@anim/slide_in_from_right"
+            app:exitAnim="@anim/slide_out_to_left"
+            app:popEnterAnim="@anim/slide_in_from_left"
+            app:popExitAnim="@anim/slide_out_to_right" />
+
+    </fragment>
+
+    <fragment
+        android:id="@+id/clientFragment"
+        android:name="com.management.engineering.alarm.alarmengineermanagement.features.client.ClientFragment"
+        android:label="ClientFragment" />
 
 </navigation>

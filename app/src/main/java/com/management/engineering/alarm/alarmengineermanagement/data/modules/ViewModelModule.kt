@@ -1,5 +1,6 @@
 package com.management.engineering.alarm.alarmengineermanagement.data.modules
 
+import com.management.engineering.alarm.alarmengineermanagement.features.client.ClientViewModel
 import com.management.engineering.alarm.alarmengineermanagement.features.clients.ClientsViewModel
 import com.management.engineering.alarm.alarmengineermanagement.features.home.HomeViewModel
 import com.management.engineering.alarm.alarmengineermanagement.features.login.LoginViewModel
@@ -13,4 +14,6 @@ val viewModelModule = module {
     viewModel { HomeViewModel(get()) }
 
     viewModel { ClientsViewModel(get()) }
+
+    viewModel { ClientViewModel() }
 }
