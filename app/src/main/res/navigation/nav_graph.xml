@@ -54,6 +54,14 @@
     <fragment
         android:id="@+id/clientFragment"
         android:name="com.management.engineering.alarm.alarmengineermanagement.features.client.ClientFragment"
-        android:label="ClientFragment" />
+        android:label="ClientFragment" >
+        <action
+            android:id="@+id/action_clientFragment_to_customerFragment"
+            app:destination="@id/customerFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/customerFragment"
+        android:name="com.management.engineering.alarm.alarmengineermanagement.features.customer.CustomerFragment"
+        android:label="CustomerFragment" />
 
 </navigation>

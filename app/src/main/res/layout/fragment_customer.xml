@@ -1,0 +1,229 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar_customer"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:background="@color/colorPrimary"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:navigationIcon="?attr/NavigationBackIconLight"
+        app:titleTextColor="@color/white" />
+
+    <androidx.constraintlayout.widget.Barrier
+        android:id="@+id/barrier_customer_details"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:barrierDirection="right"
+        app:constraint_referenced_ids="text_customer_details_title" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/text_customer_details_title"
+        style="@style/Text.AEM.Heading5"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:paddingStart="@dimen/padding_size_large"
+        android:paddingTop="@dimen/padding_size_medium"
+        android:paddingEnd="@dimen/padding_size_large"
+        android:text="@string/details"
+        app:layout_constraintEnd_toStartOf="@id/barrier_customer_details"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/toolbar_customer" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/text_customer_details_name_tag"
+        style="@style/Text.AEM.Body2"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:paddingStart="@dimen/padding_size_large"
+        android:paddingTop="@dimen/padding_size_small"
+        android:paddingEnd="@dimen/no_padding"
+        android:text="@string/name"
+        app:layout_constraintEnd_toStartOf="@id/barrier_customer_details"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/text_customer_details_title" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/text_customer_details_name"
+        style="@style/Text.AEM.Body2"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="@id/text_customer_details_name_tag"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/barrier_customer_details"
+        tools:text="Daniel" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/text_customer_details_account_number_tag"
+        style="@style/Text.AEM.Body2"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:paddingStart="@dimen/padding_size_large"
+        android:paddingTop="@dimen/padding_size_small"
+        android:paddingEnd="@dimen/no_padding"
+        android:text="@string/account_number"
+        app:layout_constraintEnd_toStartOf="@id/barrier_customer_details"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/text_customer_details_name" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/text_customer_details_account_number"
+        style="@style/Text.AEM.Body2"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="@id/text_customer_details_account_number_tag"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/barrier_customer_details"
+        tools:text="ANAW14123222" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/text_customer_details_mobile_number_tag"
+        style="@style/Text.AEM.Body2"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:paddingStart="@dimen/padding_size_large"
+        android:paddingTop="@dimen/padding_size_small"
+        android:paddingEnd="@dimen/no_padding"
+        android:text="@string/mobile"
+        app:layout_constraintEnd_toStartOf="@id/barrier_customer_details"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/text_customer_details_account_number" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/text_customer_details_mobile_number"
+        style="@style/Text.AEM.Body2.Accent"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="@id/text_customer_details_mobile_number_tag"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/barrier_customer_details"
+        tools:text="07949 8892297" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/text_customer_details_landline_number_tag"
+        style="@style/Text.AEM.Body2"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:paddingStart="@dimen/padding_size_large"
+        android:paddingTop="@dimen/padding_size_small"
+        android:paddingEnd="@dimen/no_padding"
+        android:text="@string/landline"
+        app:layout_constraintEnd_toStartOf="@id/barrier_customer_details"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/text_customer_details_mobile_number" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/text_customer_details_landline_number"
+        style="@style/Text.AEM.Body2.Accent"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="@id/text_customer_details_landline_number_tag"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/barrier_customer_details"
+        tools:text="0191 2132246" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/text_customer_details_email_tag"
+        style="@style/Text.AEM.Body2"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:paddingStart="@dimen/padding_size_large"
+        android:paddingTop="@dimen/padding_size_small"
+        android:paddingEnd="@dimen/no_padding"
+        android:text="@string/email"
+        app:layout_constraintEnd_toStartOf="@id/barrier_customer_details"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/text_customer_details_landline_number_tag" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/text_customer_details_email"
+        style="@style/Text.AEM.Body2.Accent"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="@id/text_customer_details_email_tag"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/barrier_customer_details"
+        tools:text="Daniel.sims1994@outlook.com" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/text_customer_details_address_tag"
+        style="@style/Text.AEM.Body2"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:paddingStart="@dimen/padding_size_large"
+        android:paddingTop="@dimen/padding_size_small"
+        android:paddingEnd="@dimen/no_padding"
+        android:text="@string/address"
+        app:layout_constraintEnd_toStartOf="@id/barrier_customer_details"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/text_customer_details_email_tag" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/text_customer_details_address"
+        style="@style/Text.AEM.Body2"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="@id/text_customer_details_address_tag"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/barrier_customer_details"
+        tools:text="Formatted address" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/text_customer_description_title"
+        style="@style/Text.AEM.Heading5"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:paddingStart="@dimen/padding_size_large"
+        android:paddingTop="@dimen/padding_size_medium"
+        android:paddingEnd="@dimen/padding_size_large"
+        android:text="@string/description"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/text_customer_details_address_tag" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/text_customer_description_body"
+        style="@style/Text.AEM.Body2"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:paddingStart="@dimen/padding_size_large"
+        android:paddingTop="@dimen/padding_size_small"
+        android:paddingEnd="@dimen/padding_size_large"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/text_customer_description_title"
+        tools:text="Some very long text Some very long text Some very long text Some very long text Some very long text Some very long text Some very long text Some very long text Some very long text Some very long text Some very long text Some very long textSome very long textSome very long textSome very long textSome very long textSome very long textSome very long textSome very long textSome very long text" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/text_customer_system_details_title"
+        style="@style/Text.AEM.Heading5"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:paddingStart="@dimen/padding_size_large"
+        android:paddingTop="@dimen/padding_size_medium"
+        android:paddingEnd="@dimen/padding_size_large"
+        android:text="@string/system_details"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/text_customer_description_body" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/text_customer_system_details_body"
+        style="@style/Text.AEM.Body2"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:paddingStart="@dimen/padding_size_large"
+        android:paddingTop="@dimen/padding_size_small"
+        android:paddingEnd="@dimen/padding_size_large"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/text_customer_system_details_title"
+        tools:text="Some very long text Some very long text Some very long text Some very long text Some very long text Some very long text Some very long text Some very long text Some very long text Some very long text Some very long text Some very long textSome very long textSome very long textSome very long textSome very long textSome very long textSome very long textSome very long textSome very long text" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

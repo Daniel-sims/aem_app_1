@@ -9,7 +9,7 @@ import androidx.navigation.Navigation
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.management.engineering.alarm.alarmengineermanagement.R
 import com.management.engineering.alarm.alarmengineermanagement.utils.ARG_CLIENT
-import kotlinx.android.synthetic.main.fragment_client.view.*
+import kotlinx.android.synthetic.main.fragment_client.*
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
 class ClientFragment : Fragment() {
@@ -18,30 +18,46 @@ class ClientFragment : Fragment() {
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
                               savedInstanceState: Bundle?): View? {
-        val view = inflater.inflate(R.layout.fragment_client, container, false)
-        view.toolbar_client.setNavigationOnClickListener { Navigation.findNavController(view).navigateUp() }
-
-        viewModel.client = arguments?.getParcelable(ARG_CLIENT)!!
-        view.toolbar_client.title = viewModel.client.name
-
-        view.bottom_nav_client.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener)
-        return view
+        return inflater.inflate(R.layout.fragment_client, container, false)
     }
 
-    private val mOnNavigationItemSelectedListener = BottomNavigationView.OnNavigationItemSelectedListener { item ->
-        when (item.itemId) {
-            R.id.action_item1 -> {
-                return@OnNavigationItemSelectedListener true
-            }
-            R.id.action_item2 -> {
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        initBottomNav()
 
-                return@OnNavigationItemSelectedListener true
-            }
-            R.id.action_item3 -> {
+        viewModel.client = arguments?.getParcelable(ARG_CLIENT)!!
 
-                return@OnNavigationItemSelectedListener true
-            }
-        }
-        false
+        toolbar_client.title = viewModel.client.name
+        toolbar_client.setNavigationOnClickListener { Navigation.findNavController(view).navigateUp() }
+
+        swapFragment(ClientDetailsFragment.newInstance(viewModel.client))
+    }
+
+    private fun initBottomNav() {
+        bottom_nav_client.setOnNavigationItemSelectedListener(
+                BottomNavigationView.OnNavigationItemSelectedListener { item ->
+                    when (item.itemId) {
+                        R.id.client_action_details -> {
+                            swapFragment(ClientDetailsFragment.newInstance(viewModel.client))
+                            return@OnNavigationItemSelectedListener true
+                        }
+
+                        R.id.client_action_job_history -> {
+                            swapFragment(ClientJobHistoryFragment.newInstance(viewModel.client))
+                            return@OnNavigationItemSelectedListener true
+                        }
+
+                        R.id.client_action_customers -> {
+                            swapFragment(ClientCustomersFragment.newInstance(viewModel.client))
+                            return@OnNavigationItemSelectedListener true
+                        }
+                    }
+
+                    false
+                })
+    }
+
+    private fun swapFragment(fragment: Fragment) {
+        fragmentManager?.beginTransaction()?.replace(R.id.fl_client_nav_container, fragment)?.commit()
     }
 }

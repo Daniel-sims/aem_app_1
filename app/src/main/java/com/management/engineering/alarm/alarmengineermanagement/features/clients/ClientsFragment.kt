@@ -15,63 +15,77 @@ import com.management.engineering.alarm.alarmengineermanagement.data.models.Clie
 import com.management.engineering.alarm.alarmengineermanagement.data.models.Resource
 import com.management.engineering.alarm.alarmengineermanagement.utils.ARG_CLIENT
 import com.management.engineering.alarm.alarmengineermanagement.utils.adapters.ClientsAdapter
-import kotlinx.android.synthetic.main.fragment_clients.view.*
+import kotlinx.android.synthetic.main.fragment_clients.*
 import org.koin.androidx.viewmodel.ext.android.viewModel
+
 
 class ClientsFragment : Fragment() {
 
     private val viewModel: ClientsViewModel by viewModel()
-    private lateinit var adapter: ClientsAdapter
+    private lateinit var clientsAdapter: ClientsAdapter
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
                               savedInstanceState: Bundle?): View? {
-        val view = inflater.inflate(R.layout.fragment_clients, container, false)
-        view.toolbar_clients.setNavigationOnClickListener { Navigation.findNavController(view).navigateUp() }
-
-        initClients(view)
-
-        return view
+        return inflater.inflate(R.layout.fragment_clients, container, false)
     }
 
-    private fun initClients(view: View) {
-        view.rv_clients.layoutManager = LinearLayoutManager(context)
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        toolbar_clients.setNavigationOnClickListener { Navigation.findNavController(view).navigateUp() }
 
+        initClients()
+    }
+
+    private fun initClients() {
+        clientsAdapter = ClientsAdapter()
+        clientsAdapter.onModuleClicked = { client ->
+            Navigation.findNavController(view!!).navigate(R.id.action_clientsFragment_to_clientFragment,
+                    bundleOf(ARG_CLIENT to client))
+        }
+
+        rv_clients.adapter = clientsAdapter
+        rv_clients.layoutManager = LinearLayoutManager(context)
+
+        getClientsData()
+    }
+
+    private fun getClientsData() {
         viewModel.getClients().observe(this,
                 Observer<Resource<List<ClientResponse>>> { resource ->
                     if (resource != null)
                         when (resource.status) {
                             Resource.Status.SUCCESS -> {
-                                adapter = ClientsAdapter(resource.data as ArrayList<ClientResponse>)
-                                view.rv_clients.adapter = adapter
+                                layout_loading_clients.visibility = View.GONE
 
-                                adapter.onModuleClicked = { client ->
-                                    Navigation.findNavController(view).navigate(R.id.action_clientsFragment_to_clientFragment,
-                                            bundleOf(ARG_CLIENT to client))
-                                }
-
-                                view.layout_loading_clients.visibility = View.GONE
-
-                                if (resource.data.isEmpty()) {
-                                    view.layout_no_clients.visibility = View.VISIBLE
+                                if (resource.data!!.isEmpty()) {
+                                    layout_no_clients.visibility = View.VISIBLE
                                 } else {
-                                    view.rv_clients.visibility = View.VISIBLE
+                                    rv_clients.visibility = View.VISIBLE
+
+                                    clientsAdapter.updateData(resource.data)
                                 }
                             }
 
                             Resource.Status.FAILED -> {
-                                showErrorSnackbar(getString(R.string.failed_to_clients_error), view)
+                                layout_loading_clients.visibility = View.GONE
+                                layout_no_clients.visibility = View.VISIBLE
+
+                                showErrorSnackbar(getString(R.string.failed_to_clients_error))
                             }
 
                             Resource.Status.ERROR -> {
-                                showErrorSnackbar("Error: " + resource.exception?.exceptin?.message, view)
+                                layout_loading_clients.visibility = View.GONE
+                                layout_no_clients.visibility = View.VISIBLE
+
+                                showErrorSnackbar("Error: " + resource.exception?.exceptin?.message)
                             }
                         }
                 })
     }
 
-    private fun showErrorSnackbar(message: String, view: View) {
+    private fun showErrorSnackbar(message: String) {
         Snackbar.make(
-                view,
+                view!!,
                 message,
                 Snackbar.LENGTH_SHORT
         ).show()

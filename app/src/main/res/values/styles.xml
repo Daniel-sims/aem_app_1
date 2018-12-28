@@ -136,6 +136,10 @@
         <item name="android:textColor">?attr/LightTextColor</item>
     </style>
 
+    <style name="Text.AEM.Body2.Accent">
+        <item name="android:textColor">?attr/colorAccent</item>
+    </style>
+
     <!-- Caption -->
     <style name="Text.AEM.Caption" parent="TextAppearance.MaterialComponents.Caption">
         <item name="android:textSize">@dimen/text_size_small</item>

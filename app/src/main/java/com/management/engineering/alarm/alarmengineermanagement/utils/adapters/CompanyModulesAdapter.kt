@@ -10,7 +10,7 @@ import com.management.engineering.alarm.alarmengineermanagement.utils.inflate
 import kotlinx.android.synthetic.main.item_company_module.view.*
 
 class CompanyModulesAdapter(
-        private val modules: ArrayList<CompanyModuleResponse>,
+        val companyModuleAdapters: ArrayList<CompanyModuleResponse> = ArrayList(),
         var onModuleClicked: ((CompanyModuleResponse) -> Unit)? = null
 ) : RecyclerView.Adapter<CompanyModulesAdapter.ModuleHolder>() {
 
@@ -18,10 +18,16 @@ class CompanyModulesAdapter(
         return ModuleHolder(parent.inflate(R.layout.item_company_module, false))
     }
 
-    override fun getItemCount() = modules.size
+    override fun getItemCount() = companyModuleAdapters.size
 
     override fun onBindViewHolder(holder: CompanyModulesAdapter.ModuleHolder, position: Int) {
-        holder.bindModule(modules[position])
+        holder.bindModule(companyModuleAdapters[position])
+    }
+
+    fun updateData(data: List<CompanyModuleResponse>) {
+        companyModuleAdapters.clear()
+        companyModuleAdapters.addAll(data)
+        notifyDataSetChanged()
     }
 
     inner class ModuleHolder(v: View) : RecyclerView.ViewHolder(v), View.OnClickListener {

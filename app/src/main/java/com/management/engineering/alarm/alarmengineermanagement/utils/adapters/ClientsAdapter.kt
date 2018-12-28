@@ -9,10 +9,9 @@ import com.management.engineering.alarm.alarmengineermanagement.utils.inflate
 import kotlinx.android.synthetic.main.item_client.view.*
 
 class ClientsAdapter(
-        private val clients: ArrayList<ClientResponse>,
+        val clients: ArrayList<ClientResponse> = ArrayList(),
         var onModuleClicked: ((ClientResponse) -> Unit)? = null
 ) : RecyclerView.Adapter<ClientsAdapter.ModuleHolder>() {
-
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ClientsAdapter.ModuleHolder {
         return ModuleHolder(parent.inflate(R.layout.item_client, false))
     }
@@ -21,6 +20,12 @@ class ClientsAdapter(
 
     override fun onBindViewHolder(holder: ClientsAdapter.ModuleHolder, position: Int) {
         holder.bindModule(clients[position])
+    }
+
+    fun updateData(data: List<ClientResponse>) {
+        clients.clear()
+        clients.addAll(data)
+        notifyDataSetChanged()
     }
 
     inner class ModuleHolder(v: View) : RecyclerView.ViewHolder(v), View.OnClickListener {
