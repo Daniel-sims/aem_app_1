@@ -1,15 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
     <item
-        android:id="@+id/client_action_details"
+        android:id="@+id/clientDetailsFragment"
         android:icon="@drawable/ic_launcher_foreground"
         android:title="Details"/>
     <item
-        android:id="@+id/client_action_job_history"
+        android:id="@+id/clientJobHistoryFragment"
         android:icon="@drawable/ic_launcher_foreground"
         android:title="Job History"/>
     <item
-        android:id="@+id/client_action_customers"
+        android:id="@+id/clientCustomersFragment"
         android:icon="@drawable/ic_launcher_foreground"
         android:title="Customers"/>
 </menu>

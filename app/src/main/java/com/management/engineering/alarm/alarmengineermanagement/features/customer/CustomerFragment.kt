@@ -28,7 +28,6 @@ class CustomerFragment : Fragment() {
         toolbar_customer.title = viewModel.customer.name
 
         initCustomerDetails()
-
     }
 
     private fun initCustomerDetails() {

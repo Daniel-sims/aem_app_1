@@ -41,9 +41,9 @@ class ClientCustomersFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        viewModel.client = arguments?.getParcelable(ARG_CLIENT)!!
+        //viewModel.client = arguments?.getParcelable(ARG_CLIENT)!!
 
-        initCustomers()
+        //initCustomers()
     }
 
     private fun initCustomers() {

@@ -4,7 +4,6 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.RelativeLayout
 import androidx.core.os.bundleOf
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
@@ -14,6 +13,7 @@ import com.management.engineering.alarm.alarmengineermanagement.R
 import com.management.engineering.alarm.alarmengineermanagement.data.models.LoginPostResponse
 import com.management.engineering.alarm.alarmengineermanagement.data.models.Resource
 import com.management.engineering.alarm.alarmengineermanagement.utils.*
+import kotlinx.android.synthetic.main.fragment_login.*
 import kotlinx.android.synthetic.main.fragment_login.view.*
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
@@ -23,13 +23,15 @@ class LoginFragment : Fragment() {
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
                               savedInstanceState: Bundle?): View? {
-        val view = inflater.inflate(R.layout.fragment_login, container, false)
+        return inflater.inflate(R.layout.fragment_login, container, false)
+    }
 
-        view.findViewById<RelativeLayout>(R.id.btn_login).setOnClickListener {
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+
+        btn_login.setOnClickListener {
             onLogin(view)
         }
-
-        return view
     }
 
     private fun onLogin(view: View) =
@@ -66,6 +68,7 @@ class LoginFragment : Fragment() {
 
                                             Resource.Status.FAILED -> {
                                                 if (resource.data?.error != null) {
+
                                                     showErrorSnackbar(resource.data.error[0], view)
                                                     view.btn_login.isEnabled = true
                                                 }

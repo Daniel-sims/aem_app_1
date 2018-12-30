@@ -9,7 +9,8 @@
     <fragment
         android:id="@+id/homeFragment"
         android:name="com.management.engineering.alarm.alarmengineermanagement.features.home.HomeFragment"
-        android:label="HomeFragment">
+        android:label="HomeFragment"
+        tools:layout="@layout/fragment_home">
 
         <action
             android:id="@+id/action_homeFragment_to_clientsFragment"
@@ -24,7 +25,8 @@
     <fragment
         android:id="@+id/loginFragment"
         android:name="com.management.engineering.alarm.alarmengineermanagement.features.login.LoginFragment"
-        android:label="LoginFragment">
+        android:label="LoginFragment"
+        tools:layout="@layout/fragment_login">
 
         <action
             android:id="@+id/action_loginFragment_to_homeFragment"
@@ -39,7 +41,8 @@
     <fragment
         android:id="@+id/clientsFragment"
         android:name="com.management.engineering.alarm.alarmengineermanagement.features.clients.ClientsFragment"
-        android:label="ClientsFragment">
+        android:label="ClientsFragment"
+        tools:layout="@layout/fragment_clients">
 
         <action
             android:id="@+id/action_clientsFragment_to_clientFragment"
@@ -54,14 +57,25 @@
     <fragment
         android:id="@+id/clientFragment"
         android:name="com.management.engineering.alarm.alarmengineermanagement.features.client.ClientFragment"
-        android:label="ClientFragment" >
+        android:label="ClientFragment"
+        tools:layout="@layout/fragment_client">
+
         <action
             android:id="@+id/action_clientFragment_to_customerFragment"
-            app:destination="@id/customerFragment" />
+            app:destination="@id/customerFragment"
+            app:enterAnim="@anim/slide_in_from_right"
+            app:exitAnim="@anim/slide_out_to_left"
+            app:popEnterAnim="@anim/slide_in_from_left"
+            app:popExitAnim="@anim/slide_out_to_right" />
+
     </fragment>
+
     <fragment
         android:id="@+id/customerFragment"
         android:name="com.management.engineering.alarm.alarmengineermanagement.features.customer.CustomerFragment"
-        android:label="CustomerFragment" />
+        android:label="CustomerFragment"
+        tools:layout="@layout/fragment_customer" />
+
+
 
 </navigation>

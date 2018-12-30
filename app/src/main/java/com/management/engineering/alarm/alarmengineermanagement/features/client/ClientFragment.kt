@@ -5,12 +5,14 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import androidx.navigation.NavController
 import androidx.navigation.Navigation
-import com.google.android.material.bottomnavigation.BottomNavigationView
+import androidx.navigation.ui.NavigationUI
 import com.management.engineering.alarm.alarmengineermanagement.R
 import com.management.engineering.alarm.alarmengineermanagement.utils.ARG_CLIENT
 import kotlinx.android.synthetic.main.fragment_client.*
 import org.koin.androidx.viewmodel.ext.android.viewModel
+
 
 class ClientFragment : Fragment() {
 
@@ -23,41 +25,18 @@ class ClientFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        initBottomNav()
 
         viewModel.client = arguments?.getParcelable(ARG_CLIENT)!!
 
         toolbar_client.title = viewModel.client.name
         toolbar_client.setNavigationOnClickListener { Navigation.findNavController(view).navigateUp() }
 
-        swapFragment(ClientDetailsFragment.newInstance(viewModel.client))
+        val x = fl_client_nav_container
+        //setupBottomNavMenu(fl_client_nav_container.host)
+        val p = 1
     }
 
-    private fun initBottomNav() {
-        bottom_nav_client.setOnNavigationItemSelectedListener(
-                BottomNavigationView.OnNavigationItemSelectedListener { item ->
-                    when (item.itemId) {
-                        R.id.client_action_details -> {
-                            swapFragment(ClientDetailsFragment.newInstance(viewModel.client))
-                            return@OnNavigationItemSelectedListener true
-                        }
-
-                        R.id.client_action_job_history -> {
-                            swapFragment(ClientJobHistoryFragment.newInstance(viewModel.client))
-                            return@OnNavigationItemSelectedListener true
-                        }
-
-                        R.id.client_action_customers -> {
-                            swapFragment(ClientCustomersFragment.newInstance(viewModel.client))
-                            return@OnNavigationItemSelectedListener true
-                        }
-                    }
-
-                    false
-                })
-    }
-
-    private fun swapFragment(fragment: Fragment) {
-        fragmentManager?.beginTransaction()?.replace(R.id.fl_client_nav_container, fragment)?.commit()
+    private fun setupBottomNavMenu(navController: NavController) {
+        NavigationUI.setupWithNavController(bottom_nav_client, navController)
     }
 }
