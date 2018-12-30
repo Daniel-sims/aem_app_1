@@ -33,17 +33,15 @@ class ClientCustomersFragment : Fragment() {
     private val viewModel: ClientViewModel by viewModel()
     private lateinit var customersAdapter: CustomersAdapter
 
-    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
-                              savedInstanceState: Bundle?): View? {
-        return inflater.inflate(R.layout.fragment_client_customers, container, false)
-    }
+    override fun onCreateView(
+            inflater: LayoutInflater, container: ViewGroup?,
+            savedInstanceState: Bundle?
+    ): View? = inflater.inflate(R.layout.fragment_client_customers, container, false)
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        //viewModel.client = arguments?.getParcelable(ARG_CLIENT)!!
-
-        //initCustomers()
+        initCustomers()
     }
 
     private fun initCustomers() {
