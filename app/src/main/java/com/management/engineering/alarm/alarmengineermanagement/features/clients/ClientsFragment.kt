@@ -39,8 +39,10 @@ class ClientsFragment : Fragment() {
     private fun initClients() {
         clientsAdapter = ClientsAdapter()
         clientsAdapter.onModuleClicked = { client ->
-            Navigation.findNavController(view!!).navigate(R.id.action_clientsFragment_to_clientFragment,
-                    bundleOf(ARG_CLIENT to client))
+            view?.let { view ->
+                Navigation.findNavController(view).navigate(R.id.action_clientsFragment_to_clientFragment,
+                        bundleOf(ARG_CLIENT to client))
+            }
         }
 
         rv_clients.adapter = clientsAdapter
@@ -57,12 +59,14 @@ class ClientsFragment : Fragment() {
                             Resource.Status.SUCCESS -> {
                                 layout_loading_clients.visibility = View.GONE
 
-                                if (resource.data!!.isEmpty()) {
-                                    layout_no_clients.visibility = View.VISIBLE
-                                } else {
-                                    rv_clients.visibility = View.VISIBLE
+                                resource.data?.let { data ->
+                                    if (data.isEmpty()) {
+                                        layout_no_clients.visibility = View.VISIBLE
+                                    } else {
+                                        rv_clients.visibility = View.VISIBLE
 
-                                    clientsAdapter.updateData(resource.data)
+                                        clientsAdapter.updateData(data)
+                                    }
                                 }
                             }
 
@@ -84,10 +88,12 @@ class ClientsFragment : Fragment() {
     }
 
     private fun showErrorSnackbar(message: String) {
-        Snackbar.make(
-                view!!,
-                message,
-                Snackbar.LENGTH_SHORT
-        ).show()
+        view?.let { view ->
+            Snackbar.make(
+                    view,
+                    message,
+                    Snackbar.LENGTH_SHORT
+            ).show()
+        }
     }
 }

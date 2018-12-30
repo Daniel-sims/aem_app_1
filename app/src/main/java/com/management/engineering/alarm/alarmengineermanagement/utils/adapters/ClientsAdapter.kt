@@ -38,7 +38,7 @@ class ClientsAdapter(
         }
 
         override fun onClick(v: View) {
-            onModuleClicked?.invoke(client!!)
+            client?.let { client -> onModuleClicked?.invoke(client)}
         }
 
         fun bindModule(client: ClientResponse) {

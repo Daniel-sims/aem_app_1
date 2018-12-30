@@ -40,7 +40,7 @@ class CompanyModulesAdapter(
         }
 
         override fun onClick(v: View) {
-            onModuleClicked?.invoke(module!!)
+            module?.let { module -> onModuleClicked?.invoke(module) }
         }
 
         fun bindModule(module: CompanyModuleResponse) {

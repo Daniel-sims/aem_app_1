@@ -9,28 +9,15 @@ import androidx.fragment.app.Fragment
 import androidx.navigation.Navigation
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.management.engineering.alarm.alarmengineermanagement.R
-import com.management.engineering.alarm.alarmengineermanagement.data.models.ClientResponse
 import com.management.engineering.alarm.alarmengineermanagement.data.models.CustomerResponse
-import com.management.engineering.alarm.alarmengineermanagement.utils.ARG_CLIENT
 import com.management.engineering.alarm.alarmengineermanagement.utils.ARG_CUSTOMER
 import com.management.engineering.alarm.alarmengineermanagement.utils.adapters.CustomersAdapter
 import kotlinx.android.synthetic.main.fragment_client_customers.*
-import org.koin.androidx.viewmodel.ext.android.viewModel
+import org.koin.androidx.viewmodel.ext.android.sharedViewModel
 
 class ClientCustomersFragment : Fragment() {
 
-    companion object {
-
-        fun newInstance(clientResponse: ClientResponse): ClientCustomersFragment {
-            val fragment = ClientCustomersFragment()
-            val bundle = bundleOf(ARG_CLIENT to clientResponse)
-            fragment.arguments = bundle
-
-            return fragment
-        }
-    }
-
-    private val viewModel: ClientViewModel by viewModel()
+    private val viewModel: ClientViewModel by sharedViewModel()
     private lateinit var customersAdapter: CustomersAdapter
 
     override fun onCreateView(
@@ -55,8 +42,10 @@ class ClientCustomersFragment : Fragment() {
             rv_customers.adapter = customersAdapter
 
             customersAdapter.onCustomerClicked = { customer ->
-                Navigation.findNavController(view!!).navigate(R.id.action_clientFragment_to_customerFragment,
-                        bundleOf(ARG_CUSTOMER to customer))
+                activity?.let { activity ->
+                    Navigation.findNavController(activity, R.id.nav_host).navigate(R.id.action_clientFragment_to_customerFragment,
+                            bundleOf(ARG_CUSTOMER to customer))
+                }
             }
         }
     }

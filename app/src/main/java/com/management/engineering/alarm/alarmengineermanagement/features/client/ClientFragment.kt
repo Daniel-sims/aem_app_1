@@ -10,12 +10,12 @@ import androidx.navigation.ui.setupWithNavController
 import com.management.engineering.alarm.alarmengineermanagement.R
 import com.management.engineering.alarm.alarmengineermanagement.utils.ARG_CLIENT
 import kotlinx.android.synthetic.main.fragment_client.*
-import org.koin.androidx.viewmodel.ext.android.viewModel
+import org.koin.androidx.viewmodel.ext.android.sharedViewModel
 
 
 class ClientFragment : Fragment() {
 
-    private val viewModel: ClientViewModel by viewModel()
+    private val viewModel: ClientViewModel by sharedViewModel()
 
     override fun onCreateView(
             inflater: LayoutInflater, container: ViewGroup?,
@@ -30,8 +30,10 @@ class ClientFragment : Fragment() {
         toolbar_client.title = viewModel.client.name
         toolbar_client.setNavigationOnClickListener { Navigation.findNavController(view).navigateUp() }
 
-        val fragmentContainer = view.findViewById<View>(R.id.fl_client_nav_container)
-        val navController = Navigation.findNavController(fragmentContainer)
-        bottom_nav_client.setupWithNavController(navController)
+        bottom_nav_client.setupWithNavController(
+                Navigation.findNavController(
+                        view.findViewById<View>(R.id.fl_client_nav_container)
+                )
+        )
     }
 }

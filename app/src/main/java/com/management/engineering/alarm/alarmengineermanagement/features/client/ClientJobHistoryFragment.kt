@@ -6,11 +6,11 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import com.management.engineering.alarm.alarmengineermanagement.R
-import org.koin.androidx.viewmodel.ext.android.viewModel
+import org.koin.androidx.viewmodel.ext.android.sharedViewModel
 
 class ClientJobHistoryFragment : Fragment() {
 
-    private val viewModel: ClientViewModel by viewModel()
+    private val viewModel: ClientViewModel by sharedViewModel()
 
     override fun onCreateView(
             inflater: LayoutInflater, container: ViewGroup?,

@@ -62,13 +62,14 @@ class HomeFragment : Fragment() {
                             Resource.Status.SUCCESS -> {
 
                                 layout_loading_modules.visibility = View.GONE
+                                resource.data?.let { data ->
+                                    if (data.modules.isEmpty()) {
+                                        layout_no_modules.visibility = View.VISIBLE
+                                    } else {
+                                        rv_company_modules.visibility = View.VISIBLE
 
-                                if (resource.data!!.modules.isEmpty()) {
-                                    layout_no_modules.visibility = View.VISIBLE
-                                } else {
-                                    rv_company_modules.visibility = View.VISIBLE
-
-                                    companyModulesAdapter.updateData(resource.data.modules)
+                                        companyModulesAdapter.updateData(data.modules)
+                                    }
                                 }
                             }
 
@@ -92,7 +93,7 @@ class HomeFragment : Fragment() {
     private fun navigateToModule(moduleSlug: String) {
         when (moduleSlug) {
             CLIENTS_MODULE_SLUG -> {
-                Navigation.findNavController(view!!).navigate(R.id.action_homeFragment_to_clientsFragment)
+                view?.let {  view ->  Navigation.findNavController(view).navigate(R.id.action_homeFragment_to_clientsFragment)}
             }
             else -> {
                 showErrorSnackbar(String.format("%s - Module not supported", moduleSlug))
@@ -101,10 +102,13 @@ class HomeFragment : Fragment() {
     }
 
     private fun showErrorSnackbar(message: String) {
-        Snackbar.make(
-                view!!,
-                message,
-                Snackbar.LENGTH_SHORT
-        ).show()
+        view?.let { view ->
+            Snackbar.make(
+                    view,
+                    message,
+                    Snackbar.LENGTH_SHORT
+            ).show()
+        }
+
     }
 }
