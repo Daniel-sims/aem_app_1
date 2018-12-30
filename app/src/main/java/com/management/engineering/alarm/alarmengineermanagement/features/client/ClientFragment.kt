@@ -17,11 +17,11 @@ import org.koin.androidx.viewmodel.ext.android.viewModel
 class ClientFragment : Fragment() {
 
     private val viewModel: ClientViewModel by viewModel()
-
-    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
-                              savedInstanceState: Bundle?): View? {
-        return inflater.inflate(R.layout.fragment_client, container, false)
-    }
+    
+    override fun onCreateView(
+		inflater: LayoutInflater, container: ViewGroup?,
+		savedInstanceState: Bundle?
+	): View? = inflater.inflate(R.layout.fragment_client, container, false)
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
